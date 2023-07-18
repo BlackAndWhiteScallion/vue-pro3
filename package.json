@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "vue-chessboard": "^0.6.7"
+  }
+}
