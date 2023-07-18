@@ -4,10 +4,16 @@
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     </head>
     <body>
-        <div id="app">
-            <chessboard></chessboard>
-        </div>
+        <div id="app">      
+            <h1> hi </h1>
 
+            <chessboard :fen="currentFen" :orientation="color"> </chessboard>
+
+            <button class="button" @click="loadFen(fen)" v-for="fen in fens">
+                position
+            </button>
+            <button class="button is-light" @click="undo()">UNDO</button>
+        </div>
         <link rel="stylesheet" href="vue-chessboard/dist/vue-chessboard.css"/>
         <script src="vue-chessboard/dist/vue-chessboard.browser.js"></script>
 
