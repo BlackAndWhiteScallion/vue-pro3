@@ -2,11 +2,12 @@
     <head>
         <link rel="stylesheet" href="index.css">
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        
+        <link rel="stylesheet" href="vue-chessboard/dist/vue-chessboard.css"/>
+        <script src="vue-chessboard/dist/vue-chessboard.browser.js"></script>
     </head>
     <body>
-        <div id="app">      
-            <h1> hi </h1>
-
+        <div id="app">
             <chessboard :fen="currentFen" :orientation="color"> </chessboard>
 
             <button class="button" @click="loadFen(fen)" v-for="fen in fens">
@@ -16,10 +17,6 @@
                 new game
             </button>
         </div>
-        <div>
-        </div>
-        <link rel="stylesheet" href="vue-chessboard/dist/vue-chessboard.css"/>
-        <script src="vue-chessboard/dist/vue-chessboard.browser.js"></script>
 
     </body>
     <script src="index.js"></script>
