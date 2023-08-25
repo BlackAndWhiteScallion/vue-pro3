@@ -8,17 +8,19 @@
     </head>
     <body>
         <div id="app">
-            <chessboard :fen="currentFen" :orientation="color"> </chessboard>
+            <chessboard :fen="currentFen" :orientation="color" > </chessboard>
 
             <button class="button" @click="loadFen(fen)" v-for="fen in fens">
                 position
             </button>
-            <button class="button" @click="undo()">
+            <button class="button" @click="function(){undo();undo()}">
                 Undo
             </button>
             <button class="button" @click="newGame()">
                 new game
             </button>
+        
+            <p>{{currentFen}}</p>
         </div>
 
     </body>

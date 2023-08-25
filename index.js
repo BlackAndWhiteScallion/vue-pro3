@@ -9,6 +9,11 @@ new Vue({
       bus,
     }
   },
+  computed: {
+    history:function(){
+      return this.currentFen;
+    }
+  },
   components: {
     VueChessboard
   },
@@ -43,6 +48,7 @@ new Vue({
           this.chess.promoteTo = this.promote();
         }
         this.chess.game.move({from: orig, to: dest, promotion: this.chess.promoteTo}) // promote to queen for simplicity
+        this.currentFen = this.chess.game.fen();
         this.chess.board.set({
           fen: this.chess.game.fen()
         })
@@ -54,7 +60,7 @@ new Vue({
       let moves = this.chess.game.moves({verbose: true})
       let randomMove = moves[Math.floor(Math.random() * moves.length)]
       this.chess.game.move(randomMove)
-
+      this.currentFen = this.chess.game.fen();
       this.chess.board.set({
         fen: this.chess.game.fen(),
         turnColor: this.chess.toColor(),
