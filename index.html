@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="app">
-            <chessboard :fen="currentFen" :orientation="color" > </chessboard>
+            <chessboard :fen="currentFen" :orientation="color" @onMove="showInfo"> </chessboard>
 
             <button class="button" @click="loadFen(fen)" v-for="fen in fens">
                 position

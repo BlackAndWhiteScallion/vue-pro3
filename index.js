@@ -48,19 +48,19 @@ new Vue({
           this.chess.promoteTo = this.promote();
         }
         this.chess.game.move({from: orig, to: dest, promotion: this.chess.promoteTo}) // promote to queen for simplicity
-        this.currentFen = this.chess.game.fen();
         this.chess.board.set({
           fen: this.chess.game.fen()
         })
+        this.currentFen = this.chess.board.fen;
         this.chess.calculatePromotions()
         this.aiNextMove()
       };
     },
     aiNextMove() {
+      console.log(this.chess);
       let moves = this.chess.game.moves({verbose: true})
       let randomMove = moves[Math.floor(Math.random() * moves.length)]
       this.chess.game.move(randomMove)
-      this.currentFen = this.chess.game.fen();
       this.chess.board.set({
         fen: this.chess.game.fen(),
         turnColor: this.chess.toColor(),
@@ -70,6 +70,7 @@ new Vue({
           events: { after: this.userPlay()},
         }
       });
+      this.currentFen = this.chess.board.fen;
     },
   },
   created() {
